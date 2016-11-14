@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 using UnityEditor;
 #endif
 
-public class CarregarTMX : MonoBehaviour {
+public class TMX_MapLoader : MonoBehaviour {
 	#if UNITY_EDITOR
 	public Object file;
 	#endif
@@ -24,13 +24,13 @@ public class CarregarTMX : MonoBehaviour {
 	void Start () {
 		tileSprites = GetComponents<TilesetSprites>();
 
-		carregarTMX();
+		loadMap();
 
-		montarTiles();
+		mountTiles();
 		setPlayer();
 	}
 
-	void carregarTMX () {
+	void loadMap () {
 		#if UNITY_EDITOR
 		filename = AssetDatabase.GetAssetPath (file);
 		#endif
@@ -58,7 +58,7 @@ public class CarregarTMX : MonoBehaviour {
 		}
 	}
 
-	void montarTiles () {
+	void mountTiles () {
 
 		int idColisao = -1;
 		foreach (TMX.Tileset tset in map.tilesets) {
@@ -132,7 +132,7 @@ public class CarregarTMX : MonoBehaviour {
 		if (id<=0)
 			return null;
 		for (int i=0; i<tsets.Length; i++) {
-			if (i<tsets.Length && tsets[i+1].firstgid<=id)
+			if (i<tsets.Length && tsets[i+1].firstgid<=id) //FIXME bug i+1
 				continue;
 			return (tsets[i].obj as TilesetSprites).sprites[id - tsets[i].firstgid];
 		}
