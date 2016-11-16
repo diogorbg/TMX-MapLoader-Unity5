@@ -14,16 +14,13 @@ public class TMX_MapLoader : MonoBehaviour {
 	#endif
 
 	public string filename;
+	public TilesetData[] tileData;
 	public SpriteRenderer tile;
 	public GameObject col1, col2;
 	public Player player;
 	public TMX.Map map;
 
-	private TilesetSprites[] tileSprites;
-
 	void Start () {
-		tileSprites = GetComponents<TilesetSprites>();
-
 		loadMap();
 
 		mountTiles();
@@ -68,10 +65,12 @@ public class TMX_MapLoader : MonoBehaviour {
 				idColisao = tset.firstgid;
 
 			//- Identifica o tileset
-			foreach (TilesetSprites tSprite in tileSprites) {
-				if (tset.getSource().EndsWith(tSprite.filename)) {
-					tset.obj = tSprite;
-					break;
+			foreach (TilesetData tData in tileData) {
+				foreach (TilesetSprite tSprite in tData.tilesets) {
+					if (tset.getSource().EndsWith(tSprite.source)) {
+						tset.obj = tSprite;
+						break;
+					}
 				}
 			}
 		}
@@ -134,7 +133,7 @@ public class TMX_MapLoader : MonoBehaviour {
 		for (int i=0; i<tsets.Length; i++) {
 			if (i<tsets.Length && tsets[i+1].firstgid<=id) //FIXME bug i+1
 				continue;
-			return (tsets[i].obj as TilesetSprites).sprites[id - tsets[i].firstgid];
+			return (tsets[i].obj as TilesetSprite).sprites[id - tsets[i].firstgid];
 		}
 		return null;
 	}
