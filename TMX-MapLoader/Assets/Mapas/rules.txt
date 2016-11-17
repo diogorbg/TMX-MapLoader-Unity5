@@ -1,1 +1,2 @@
+//rules/terrain.tmx
 rules/objects.tmx
