@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="15" height="9" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" source="../tiles2/terrain.tsx"/>
+ <tileset firstgid="465" name="colisao" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../tiles1/colisao.png" width="64" height="32"/>
+ </tileset>
+ <layer name="regions" width="15" height="9">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAMMFPAHiiAyw1Dxc30chsALNwAJQ==
+  </data>
+ </layer>
+ <layer name="input_Ground" width="15" height="9">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAMrENib0Jib0RiMzIi2P8otI8aYB8O8Y9I7E9I7EM0dAuxYC8S+y8S+y0N7QQADIUJHA==
+  </data>
+ </layer>
+ <layer name="output_Collision2" width="15" height="9" offsetx="-16" offsety="-16">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAMXGQkzB5sgFS3DQa/DIQbAJW4BO0=
+  </data>
+ </layer>
+</map>

@@ -81,17 +81,19 @@ public class TMX_MapLoader : MonoBehaviour {
 		Vector3 pos = Vector3.zero;
 		string sortLayer = "Default";
 		foreach (var layer in map.layers) {
-			layerColisao = layer.name.StartsWith("Colisao") || layer.name.StartsWith("Collision");
+			layerColisao = layer.name.StartsWith("Collision");
 
-			if (layer.name.StartsWith("Objeto") || layer.name.StartsWith("Fringe")) {
+			if (layer.name.StartsWith("Object") || layer.name.StartsWith("Fringe")) {
 				sortLayer = "Objeto";
-				//pos.z = 0f;
 			} else if (sortLayer.Equals("Objeto")) {
 				sortLayer = "Over";
 			}
 
 			GameObject objLayer = new GameObject(layer.name);
 			objLayer.transform.parent = transform;
+			pos.x = (float)layer.offsetx/32f;
+			pos.y = -(float)layer.offsety/32f;
+			objLayer.transform.position = pos;
 
 			for (int j=0; j<map.height; j++) {
 				for (int i=0; i<map.width; i++) {
@@ -99,7 +101,7 @@ public class TMX_MapLoader : MonoBehaviour {
 					if (idTile==0)
 						continue;
 					pos.x = i + (float)layer.offsetx/32f;
-					pos.y = -j-1;
+					pos.y = -j-1 - ((float)layer.offsety/32f);
 					if (!layerColisao) {
 						SpriteRenderer newTile = Instantiate(tile, pos, Quaternion.identity) as SpriteRenderer;
 						newTile.sprite = getSprite(idTile);

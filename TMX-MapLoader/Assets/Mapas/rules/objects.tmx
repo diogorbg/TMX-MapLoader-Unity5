@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="16" height="3" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" source="../tiles2/terrain.tsx"/>
+ <tileset firstgid="465" name="trunk_X2" tilewidth="32" tileheight="64" tilecount="6" columns="6">
+  <image source="../tiles2/trunk_X2.png" width="192" height="64"/>
+ </tileset>
+ <tileset firstgid="471" name="treetop" tilewidth="32" tileheight="32" tilecount="42" columns="6">
+  <image source="../tiles2/treetop.png" width="192" height="224"/>
+ </tileset>
+ <tileset firstgid="513" name="cherry_blossom_trees_X4" tilewidth="32" tileheight="128" tilecount="7" columns="7">
+  <image source="../tiles2/cherry_blossom_trees_X4.png" width="224" height="128"/>
+ </tileset>
+ <tileset firstgid="520" name="colisao" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../tiles1/colisao.png" width="64" height="32"/>
+ </tileset>
+ <layer name="regions" width="16" height="3">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAcMBNJ0wIAAAcUABA=
+  </data>
+ </layer>
+ <layer name="input_Fringe" width="16" height="3">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAcXGKE0Feh9G8ozcwEodmYqGAJDgAANxgCsw==
+  </data>
+ </layer>
+  <data encoding="base64" compression="zlib">
+   eJxjYKAccDIRR9MCAAAX6gA4
+  </data>
+ </layer>
+</map>
